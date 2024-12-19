@@ -4,64 +4,24 @@
     BackgroundColor="{StaticResource Primary}"
     x:Class="Protecc.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:local="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Grid ColumnDefinitions="200, *" RowDefinitions="100, *">
-        <!--  Sidebar  -->
         <StackLayout
             BackgroundColor="{StaticResource Beige}"
             Grid.Column="0"
             Grid.Row="0"
             Grid.RowSpan="2"
             Padding="20">
-            <Image
-                HeightRequest="60"
-                HorizontalOptions="Center"
-                Source="protecc_logo.png" />
-            <Button
-                BackgroundColor="Transparent"
-                FontSize="42"
-                HorizontalOptions="Center"
-                Style="{StaticResource SidebarButton}"
-                Text="&#xf015;"
-                TextColor="{StaticResource Secondary}"
-                VerticalOptions="Center" />
-            <Button
-                BackgroundColor="{StaticResource Primary}"
-                Style="{StaticResource SidebarButton}"
-                Text="Analytics"
-                TextColor="{StaticResource Beige}" />
-            <Button
-                BackgroundColor="{StaticResource Primary}"
-                Style="{StaticResource SidebarButton}"
-                Text="Reports"
-                TextColor="{StaticResource Beige}" />
-            <Button
-                BackgroundColor="{StaticResource Primary}"
-                Style="{StaticResource SidebarButton}"
-                Text="Settings"
-                TextColor="{StaticResource Beige}" />
+            <local:Sidebar />
         </StackLayout>
-
-        <!--  Header  -->
         <Grid
             BackgroundColor="{StaticResource Secondary}"
             Grid.Column="1"
             Grid.Row="0"
             Padding="20">
-            <Label
-                FontAttributes="Bold"
-                FontSize="24"
-                HorizontalOptions="Start"
-                Text="Finanzübersicht"
-                TextColor="{StaticResource Beige}"
-                VerticalOptions="Center" />
-            <Label
-                FontSize="16"
-                HorizontalOptions="End"
-                Text="Benutzername"
-                TextColor="{StaticResource Beige}"
-                VerticalOptions="Center" />
+            <local:Header />
         </Grid>
 
         <!--  Main Content  -->

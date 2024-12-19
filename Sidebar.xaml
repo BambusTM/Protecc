@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="Protecc.Sidebar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout>
+        <Image
+            HeightRequest="60"
+            HorizontalOptions="Center"
+            Source="protecc_logo.png" />
+        <Button
+            BackgroundColor="Transparent"
+            FontSize="48"
+            HorizontalOptions="Center"
+            Style="{StaticResource SidebarButton}"
+            Text="&#xf015;"
+            TextColor="{StaticResource Secondary}"
+            VerticalOptions="Center" />
+        <Button
+            BackgroundColor="{StaticResource Primary}"
+            Style="{StaticResource SidebarButton}"
+            Text="Analytics"
+            TextColor="{StaticResource Beige}" />
+        <Button
+            BackgroundColor="{StaticResource Primary}"
+            Style="{StaticResource SidebarButton}"
+            Text="Reports"
+            TextColor="{StaticResource Beige}" />
+        <Button
+            BackgroundColor="{StaticResource Primary}"
+            Style="{StaticResource SidebarButton}"
+            Text="Settings"
+            TextColor="{StaticResource Beige}" />
+    </StackLayout>
+
+</ContentView>

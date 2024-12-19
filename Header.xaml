@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="Protecc.Header"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <Label
+            FontAttributes="Bold"
+            FontSize="24"
+            HorizontalOptions="Start"
+            Text="Finanzübersicht"
+            TextColor="{StaticResource Beige}"
+            VerticalOptions="Center" />
+        <Label
+            FontSize="16"
+            HorizontalOptions="End"
+            Text="Benutzername"
+            TextColor="{StaticResource Beige}"
+            VerticalOptions="Center" />
+    </Grid>
+
+</ContentView>
