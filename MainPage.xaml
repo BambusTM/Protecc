@@ -7,20 +7,18 @@
     xmlns:local="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Grid ColumnDefinitions="200, *" RowDefinitions="100, *">
-        <StackLayout
-            BackgroundColor="{StaticResource Beige}"
+    <Grid
+        ColumnDefinitions="100, *"
+        ColumnSpacing="20"
+        Margin="20"
+        RowDefinitions="125, *"
+        RowSpacing="20">
+        <local:Sidebar
             Grid.Column="0"
             Grid.Row="0"
-            Grid.RowSpan="2"
-            Padding="20">
-            <local:Sidebar />
-        </StackLayout>
-        <Grid
-            BackgroundColor="{StaticResource Secondary}"
-            Grid.Column="1"
-            Grid.Row="0"
-            Padding="20">
+            Grid.RowSpan="2" />
+
+        <Grid Grid.Column="1" Grid.Row="0">
             <local:Header />
         </Grid>
 
@@ -29,7 +27,6 @@
             ColumnSpacing="10"
             Grid.Column="1"
             Grid.Row="1"
-            Padding="20"
             RowSpacing="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
@@ -42,11 +39,10 @@
 
             <!--  Overview Chart  -->
             <Frame
-                BackgroundColor="{StaticResource PrimaryDark}"
+                BackgroundColor="{StaticResource Tertiary}"
                 CornerRadius="10"
                 Grid.Column="0"
-                Grid.Row="0"
-                Padding="10">
+                Grid.Row="0">
                 <Label
                     FontSize="18"
                     HorizontalOptions="Start"
@@ -57,11 +53,10 @@
 
             <!--  Unforeseen Expenses  -->
             <Frame
-                BackgroundColor="{StaticResource PrimaryDark}"
+                BackgroundColor="{StaticResource Tertiary}"
                 CornerRadius="10"
                 Grid.Column="1"
-                Grid.Row="0"
-                Padding="10">
+                Grid.Row="0">
                 <Label
                     FontSize="18"
                     HorizontalOptions="Start"
@@ -72,11 +67,10 @@
 
             <!--  Expenses: Auto  -->
             <Frame
-                BackgroundColor="{StaticResource PrimaryDark}"
+                BackgroundColor="{StaticResource Tertiary}"
                 CornerRadius="10"
                 Grid.Column="0"
-                Grid.Row="1"
-                Padding="10">
+                Grid.Row="1">
                 <Label
                     FontSize="18"
                     HorizontalOptions="Start"
@@ -87,11 +81,10 @@
 
             <!--  Timespan  -->
             <Frame
-                BackgroundColor="{StaticResource PrimaryDark}"
+                BackgroundColor="{StaticResource Tertiary}"
                 CornerRadius="10"
                 Grid.Column="1"
-                Grid.Row="1"
-                Padding="10">
+                Grid.Row="1">
                 <Label
                     FontSize="18"
                     HorizontalOptions="Start"
