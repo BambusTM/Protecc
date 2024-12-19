@@ -20,10 +20,10 @@
                 Source="protecc_logo.png" />
             <Button
                 BackgroundColor="Transparent"
+                FontSize="42"
                 HorizontalOptions="Center"
-                ImageSource="logo_placeholder.png"
                 Style="{StaticResource SidebarButton}"
-                Text="Home"
+                Text="&#xf015;"
                 TextColor="{StaticResource Secondary}"
                 VerticalOptions="Center" />
             <Button
