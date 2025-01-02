@@ -12,4 +12,20 @@ public partial class Sidebar : ContentView
     {
         InitializeComponent();
     }
+
+    private async void OnHomeClicked(object sender, EventArgs e)
+    {
+        if (Application.Current.MainPage is NavigationPage navigationPage)
+        {
+            await navigationPage.Navigation.PopToRootAsync();
+        }
+    }
+
+    private async void OnMainClicked(object sender, EventArgs e)
+    {
+        if (Application.Current.MainPage is NavigationPage navigationPage)
+        {
+            await navigationPage.Navigation.PushAsync(new MainPage());
+        }
+    }
 }

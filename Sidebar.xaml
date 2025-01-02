@@ -16,6 +16,7 @@
                 Source="protecc_logo.png" />
             <Button
                 BackgroundColor="Transparent"
+                Clicked="OnHomeClicked"
                 FontFamily="FontAwesomeSolid"
                 FontSize="42"
                 HorizontalOptions="Center"
@@ -25,6 +26,7 @@
                 VerticalOptions="Center" />
             <Button
                 BackgroundColor="Transparent"
+                Clicked="OnMainClicked"
                 FontFamily="FontAwesomeSolid"
                 FontSize="42"
                 Style="{StaticResource SidebarButton}"
