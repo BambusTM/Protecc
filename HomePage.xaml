@@ -19,7 +19,7 @@
             Grid.RowSpan="2" />
 
         <Grid Grid.Column="1" Grid.Row="0">
-            <protecc:Header />
+            <protecc:Header Title="Home" />
         </Grid>
 
         <!--  Main Content  -->
