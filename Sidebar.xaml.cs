@@ -28,4 +28,12 @@ public partial class Sidebar : ContentView
             await navigationPage.Navigation.PushAsync(new MainPage());
         }
     }
+
+    private async void OnInfoClicked(object sender, EventArgs e)
+    {
+        if (Application.Current.MainPage is NavigationPage navigationPage)
+        {
+            await navigationPage.Navigation.PushAsync(new InfoPage());
+        }
+    }
 }

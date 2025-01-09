@@ -50,6 +50,15 @@
                 Text="&#xf013;"
                 TextColor="{StaticResource Secondary}"
                 VerticalOptions="Center" />
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="OnInfoClicked"
+                FontFamily="FontAwesomeSolid"
+                FontSize="42"
+                Style="{StaticResource SidebarButton}"
+                Text="&#xf129;"
+                TextColor="{StaticResource Secondary}"
+                VerticalOptions="Center" />
         </StackLayout>
     </Frame>
 </ContentView>

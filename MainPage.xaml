@@ -7,91 +7,93 @@
     xmlns:local="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Grid
-        ColumnDefinitions="100, *"
-        ColumnSpacing="20"
-        Margin="20"
-        RowDefinitions="125, *"
-        RowSpacing="20">
-        <local:Sidebar
-            Grid.Column="0"
-            Grid.Row="0"
-            Grid.RowSpan="2" />
-
-        <Grid Grid.Column="1" Grid.Row="0">
-            <local:Header Title="Finanzübersicht" />
-        </Grid>
-
-        <!--  Main Content  -->
+    <ScrollView>
         <Grid
-            ColumnSpacing="10"
-            Grid.Column="1"
-            Grid.Row="1"
-            RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <!--  Overview Chart  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
+            ColumnDefinitions="100, *"
+            ColumnSpacing="20"
+            Margin="20"
+            RowDefinitions="125, *"
+            RowSpacing="20">
+            <local:Sidebar
                 Grid.Column="0"
-                Grid.Row="0">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Übersicht"
-                    TextColor="{StaticResource Beige}" />
-                <!--  Add Chart here  -->
-            </Frame>
+                Grid.Row="0"
+                Grid.RowSpan="2" />
 
-            <!--  Unforeseen Expenses  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
+            <Grid Grid.Column="1" Grid.Row="0">
+                <local:Header Title="Finanzübersicht" />
+            </Grid>
+
+            <!--  Main Content  -->
+            <Grid
+                ColumnSpacing="10"
                 Grid.Column="1"
-                Grid.Row="0">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Unvorhergesehene Ausgaben"
-                    TextColor="{StaticResource Beige}" />
-                <!--  Add list here  -->
-            </Frame>
+                Grid.Row="1"
+                RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!--  Expenses: Auto  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
-                Grid.Column="0"
-                Grid.Row="1">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Ausgaben: Auto"
-                    TextColor="{StaticResource Beige}" />
-                <!--  Add bar chart here  -->
-            </Frame>
+                <!--  Overview Chart  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Grid.Row="0">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Übersicht"
+                        TextColor="{StaticResource Beige}" />
+                    <!--  Add Chart here  -->
+                </Frame>
 
-            <!--  Timespan  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
-                Grid.Column="1"
-                Grid.Row="1">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Zeitspanne"
-                    TextColor="{StaticResource Beige}" />
-                <!--  Add donut chart here  -->
-            </Frame>
+                <!--  Unforeseen Expenses  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Grid.Row="0">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Unvorhergesehene Ausgaben"
+                        TextColor="{StaticResource Beige}" />
+                    <!--  Add list here  -->
+                </Frame>
+
+                <!--  Expenses: Auto  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Grid.Row="1">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Ausgaben: Auto"
+                        TextColor="{StaticResource Beige}" />
+                    <!--  Add bar chart here  -->
+                </Frame>
+
+                <!--  Timespan  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Grid.Row="1">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Zeitspanne"
+                        TextColor="{StaticResource Beige}" />
+                    <!--  Add donut chart here  -->
+                </Frame>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollView>
 </ContentPage>

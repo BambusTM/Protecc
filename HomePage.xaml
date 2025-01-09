@@ -7,70 +7,71 @@
     xmlns:protecc="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-
-    <Grid
-        ColumnDefinitions="100, *"
-        ColumnSpacing="20"
-        Margin="20"
-        RowDefinitions="125, *"
-        RowSpacing="20">
-        <protecc:Sidebar
-            Grid.Column="0"
-            Grid.Row="0"
-            Grid.RowSpan="2" />
-
-        <Grid Grid.Column="1" Grid.Row="0">
-            <protecc:Header Title="Home" />
-        </Grid>
-
-        <!--  Main Content  -->
+    <ScrollView>
         <Grid
-            ColumnSpacing="10"
-            Grid.Column="1"
-            Grid.Row="1"
-            RowSpacing="10">
+            ColumnDefinitions="100, *"
+            ColumnSpacing="20"
+            Margin="20"
+            RowDefinitions="125, *"
+            RowSpacing="20">
+            <protecc:Sidebar
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="2" />
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <protecc:Header Title="Home" />
+            </Grid>
 
-                <StackLayout
-                    Grid.Row="0"
-                    HorizontalOptions="Center"
-                    Spacing="20"
-                    VerticalOptions="Center">
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="96"
-                        HorizontalOptions="Center"
-                        Text="Noch nichts los hier..."
-                        TextColor="{StaticResource Beige}" />
-                    <Label
-                        FontSize="40"
-                        HorizontalOptions="Center"
-                        Text="Starte mit einer Finanzanalyse indem du deine Einnahmen und Ausgaben auflistest."
-                        TextColor="{StaticResource Beige}" />
-                </StackLayout>
+            <!--  Main Content  -->
+            <Grid
+                ColumnSpacing="10"
+                Grid.Column="1"
+                Grid.Row="1"
+                RowSpacing="10">
 
-                <StackLayout
-                    Grid.Row="1"
-                    HorizontalOptions="Center"
-                    Padding="20"
-                    VerticalOptions="Start">
-                    <Button
-                        BackgroundColor="{StaticResource Secondary}"
-                        Clicked="NavToAnalyzis"
-                        CornerRadius="10"
-                        FontSize="24"
-                        HeightRequest="50"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout
+                        Grid.Row="0"
                         HorizontalOptions="Center"
-                        Text="Analyse starten"
-                        TextColor="{StaticResource Beige}"
-                        WidthRequest="350" />
-                </StackLayout>
+                        Spacing="20"
+                        VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="96"
+                            HorizontalOptions="Center"
+                            Text="Noch nichts los hier..."
+                            TextColor="{StaticResource Beige}" />
+                        <Label
+                            FontSize="40"
+                            HorizontalOptions="Center"
+                            Text="Starte mit einer Finanzanalyse indem du deine Einnahmen und Ausgaben auflistest."
+                            TextColor="{StaticResource Beige}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        Padding="20"
+                        VerticalOptions="Start">
+                        <Button
+                            BackgroundColor="{StaticResource Secondary}"
+                            Clicked="NavToAnalyzis"
+                            CornerRadius="10"
+                            FontSize="24"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            Text="Analyse starten"
+                            TextColor="{StaticResource Beige}"
+                            WidthRequest="350" />
+                    </StackLayout>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
+    </ScrollView>
 </ContentPage>

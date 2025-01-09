@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Protecc.InfoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:protecc="clr-namespace:Protecc"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <Grid
+            ColumnDefinitions="100, *"
+            ColumnSpacing="20"
+            Margin="20"
+            RowDefinitions="125, *"
+            RowSpacing="20">
+            <protecc:Sidebar
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="2" />
+
+            <Grid Grid.Column="1" Grid.Row="0">
+                <protecc:Header Title="Information" />
+            </Grid>
+
+            <!--  Main Content  -->
+            <Grid
+                ColumnSpacing="10"
+                Grid.Column="1"
+                Grid.Row="1"
+                RowSpacing="10">
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Grid.Row="0">
+                    <StackLayout>
+                        <Frame
+                            CornerRadius="10"
+                            Margin="0"
+                            Padding="0">
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="150"
+                                HorizontalOptions="FillAndExpand"
+                                Source="network.jpg"
+                                VerticalOptions="Center" />
+                        </Frame>
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Start"
+                            Text="Applikationsinformationen"
+                            TextColor="{StaticResource Secondary}" />
+                        <Label
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das monatliche Einkommen"
+                            TextColor="{StaticResource Black}" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

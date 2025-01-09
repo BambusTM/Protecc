@@ -7,44 +7,46 @@
     xmlns:protecc="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Grid
-        ColumnDefinitions="100, *"
-        ColumnSpacing="20"
-        Margin="20"
-        RowDefinitions="125, *"
-        RowSpacing="20">
-        <protecc:Sidebar
-            Grid.Column="0"
-            Grid.Row="0"
-            Grid.RowSpan="2" />
-
-        <Grid Grid.Column="1" Grid.Row="0">
-            <protecc:Header Title="Finanzübersicht" />
-        </Grid>
-
-        <!--  Main Content  -->
+    <ScrollView>
         <Grid
-            ColumnDefinitions="*, *"
-            ColumnSpacing="10"
-            Grid.Column="1"
-            Grid.Row="1"
-            RowSpacing="10">
+            ColumnDefinitions="100, *"
+            ColumnSpacing="20"
+            Margin="20"
+            RowDefinitions="125, *"
+            RowSpacing="20">
+            <protecc:Sidebar
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="2" />
 
-            <!--  Income Form  -->
-            <protecc:IncomeForm />
+            <Grid Grid.Column="1" Grid.Row="0">
+                <protecc:Header Title="Finanzübersicht" />
+            </Grid>
 
-            <!--  Spending Form  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
+            <!--  Main Content  -->
+            <Grid
+                ColumnDefinitions="*, *"
+                ColumnSpacing="10"
                 Grid.Column="1"
-                Grid.Row="0">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Ausgaben"
-                    TextColor="{StaticResource Beige}" />
-            </Frame>
+                Grid.Row="1"
+                RowSpacing="10">
+
+                <!--  Income Form  -->
+                <protecc:IncomeForm />
+
+                <!--  Spending Form  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="1"
+                    Grid.Row="0">
+                    <Label
+                        FontSize="18"
+                        HorizontalOptions="Start"
+                        Text="Ausgaben"
+                        TextColor="{StaticResource Beige}" />
+                </Frame>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollView>
 </ContentPage>

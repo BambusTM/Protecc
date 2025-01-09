@@ -7,20 +7,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Frame BackgroundColor="{StaticResource Secondary}">
-        <Grid>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center">
             <Label
                 FontAttributes="Bold"
                 FontSize="24"
                 HorizontalOptions="Start"
                 Text="{Binding Title, Source={RelativeSource AncestorType={x:Type protecc:Header}}}"
-                TextColor="{StaticResource Beige}"
-                VerticalOptions="Center" />
+                TextColor="{StaticResource Beige}" />
             <Label
                 FontSize="16"
-                HorizontalOptions="End"
+                HorizontalOptions="Start"
                 Text="Benutzername"
-                TextColor="{StaticResource Beige}"
-                VerticalOptions="Center" />
-        </Grid>
+                TextColor="{StaticResource Beige}" />
+        </StackLayout>
     </Frame>
 </ContentView>
