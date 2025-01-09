@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
+    BackgroundColor="{StaticResource Gray900}"
     x:Class="Protecc.AnalyzisPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:protecc="clr-namespace:Protecc"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Label Text="Analyzis Page" />
+    <Grid
+        ColumnDefinitions="100, *"
+        ColumnSpacing="20"
+        Margin="20"
+        RowDefinitions="125, *"
+        RowSpacing="20">
+        <protecc:Sidebar
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="2" />
+
+        <Grid Grid.Column="1" Grid.Row="0">
+            <protecc:Header Title="Finanzübersicht" />
+        </Grid>
+
+        <!--  Main Content  -->
+        <Grid
+            ColumnDefinitions="*, *"
+            ColumnSpacing="10"
+            Grid.Column="1"
+            Grid.Row="1"
+            RowSpacing="10">
+
+            <!--  Income Form  -->
+            <Frame
+                BackgroundColor="{StaticResource Tertiary}"
+                CornerRadius="10"
+                Grid.Column="0"
+                Grid.Row="0">
+                <Label
+                    FontSize="18"
+                    HorizontalOptions="Start"
+                    Text="Einkommen"
+                    TextColor="{StaticResource Beige}" />
+            </Frame>
+
+            <!--  Spending Form  -->
+            <Frame
+                BackgroundColor="{StaticResource Tertiary}"
+                CornerRadius="10"
+                Grid.Column="1"
+                Grid.Row="0">
+                <Label
+                    FontSize="18"
+                    HorizontalOptions="Start"
+                    Text="Ausgaben"
+                    TextColor="{StaticResource Beige}" />
+            </Frame>
+        </Grid>
+    </Grid>
 </ContentPage>
