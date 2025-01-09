@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="Protecc.IncomeForm"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Frame
+        BackgroundColor="{StaticResource Tertiary}"
+        CornerRadius="10"
+        Padding="20">
+        <StackLayout Spacing="10">
+
+            <!--  Title  -->
+            <Label
+                FontSize="32"
+                HorizontalOptions="Start"
+                Text="Einkommen"
+                TextColor="{StaticResource Secondary}" />
+            <Label
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch angegeben werden. Jedes Feld bezieht sich auf das monatliche Einkommen"
+                TextColor="{StaticResource Black}" />
+
+            <StackLayout Orientation="Vertical" Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Lohn:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center" />
+                <Entry
+                    BackgroundColor="{StaticResource White}"
+                    FontSize="18"
+                    Keyboard="Numeric"
+                    Placeholder="0.00 CHF/m"
+                    TextChanged="OnIncomeChanged"
+                    TextColor="{StaticResource Black}"
+                    x:Name="LohnEntry" />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Nebenerwerb:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center" />
+                <Entry
+                    BackgroundColor="{StaticResource White}"
+                    FontSize="18"
+                    Keyboard="Numeric"
+                    Placeholder="0.00 CHF/m"
+                    TextChanged="OnIncomeChanged"
+                    TextColor="{StaticResource Black}"
+                    x:Name="NebenerwerbEntry" />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Sonstige Einnahmen:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center" />
+                <Entry
+                    BackgroundColor="{StaticResource White}"
+                    FontSize="18"
+                    Keyboard="Numeric"
+                    Placeholder="0.00 CHF/m"
+                    TextChanged="OnIncomeChanged"
+                    TextColor="{StaticResource Black}"
+                    x:Name="SonstigeEntry" />
+            </StackLayout>
+
+            <StackLayout Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Unregelmässige Einnahmen:"
+                    TextColor="{StaticResource Gray600}" />
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF/m"
+                        TextChanged="OnIncomeChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="FromEntry" />
+                    <Label
+                        FontSize="18"
+                        Text=" - "
+                        TextColor="{StaticResource Gray600}"
+                        VerticalOptions="Center" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF/m"
+                        TextChanged="OnIncomeChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="ToEntry" />
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout
+                Margin="0,20,0,0"
+                Orientation="Horizontal"
+                Spacing="5">
+                <Label
+                    FontSize="22"
+                    Text="Gesamteinkommen:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center" />
+                <Label
+                    FontSize="22"
+                    Text="0.00 CHF/m"
+                    TextColor="{StaticResource Secondary}"
+                    x:Name="GesamtWertLabel" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</ContentView>

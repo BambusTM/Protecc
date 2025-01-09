@@ -31,17 +31,7 @@
             RowSpacing="10">
 
             <!--  Income Form  -->
-            <Frame
-                BackgroundColor="{StaticResource Tertiary}"
-                CornerRadius="10"
-                Grid.Column="0"
-                Grid.Row="0">
-                <Label
-                    FontSize="18"
-                    HorizontalOptions="Start"
-                    Text="Einkommen"
-                    TextColor="{StaticResource Beige}" />
-            </Frame>
+            <protecc:IncomeForm />
 
             <!--  Spending Form  -->
             <Frame
