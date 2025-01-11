@@ -20,7 +20,7 @@
             <Label
                 FontSize="20"
                 HorizontalOptions="Start"
-                Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das monatliche Einkommen"
+                Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das jährliche Einkommen"
                 TextColor="{StaticResource Black}" />
 
             <StackLayout Orientation="Vertical" Spacing="5">
@@ -33,7 +33,7 @@
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
                     Keyboard="Numeric"
-                    Placeholder="0.00 CHF/m"
+                    Placeholder="0.00 CHF / Jahr"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="SalaryEntry" />
@@ -49,7 +49,7 @@
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
                     Keyboard="Numeric"
-                    Placeholder="0.00 CHF/m"
+                    Placeholder="0.00 CHF / Jahr"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="SidelineEntry" />
@@ -65,7 +65,7 @@
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
                     Keyboard="Numeric"
-                    Placeholder="0.00 CHF/m"
+                    Placeholder="0.00 CHF / Jahr"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="OtherEntry" />
@@ -82,7 +82,7 @@
                         FontSize="18"
                         HorizontalOptions="FillAndExpand"
                         Keyboard="Numeric"
-                        Placeholder="0.00 CHF/m"
+                        Placeholder="0.00 CHF / Jahr"
                         TextChanged="OnIncomeChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="FromEntry" />
@@ -96,7 +96,7 @@
                         FontSize="18"
                         HorizontalOptions="FillAndExpand"
                         Keyboard="Numeric"
-                        Placeholder="0.00 CHF/m"
+                        Placeholder="0.00 CHF / Jahr"
                         TextChanged="OnIncomeChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="ToEntry" />
@@ -113,7 +113,7 @@
                     VerticalOptions="Center" />
                 <Label
                     FontSize="22"
-                    Text="0.00 CHF/m"
+                    Text="0.00 CHF / Jahr"
                     TextColor="{StaticResource Secondary}"
                     x:Name="TotalLabel" />
             </StackLayout>
@@ -122,9 +122,9 @@
                 Clicked="SaveData"
                 FontSize="22"
                 HorizontalOptions="Center"
+                Margin="0,10,0,0"
                 Text="Angaben speichern"
                 TextColor="{StaticResource White}" />
-
         </StackLayout>
     </Frame>
 </ContentView>

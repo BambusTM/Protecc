@@ -52,7 +52,7 @@
                         <Label
                             FontSize="20"
                             HorizontalOptions="Start"
-                            Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das monatliche Einkommen"
+                            Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das jährliche Einkommen"
                             TextColor="{StaticResource Black}" />
                     </StackLayout>
                 </Frame>

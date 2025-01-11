@@ -20,24 +20,118 @@
             <Label
                 FontSize="20"
                 HorizontalOptions="Start"
-                Text="Alle Ausgaben sollten so genau wie möglich und eher pesimistisch geschätzt werden. Jedes Feld bezieht sich auf monatliche Ausgaben."
+                Text="Alle Ausgaben sollten so genau wie möglich und eher pesimistisch geschätzt werden. Jedes Feld bezieht sich auf jährliche Ausgaben."
                 TextColor="{StaticResource Black}" />
 
+            <!--  Food  -->
             <StackLayout Spacing="5">
-                <!--  Auto Section Header  -->
+                <Label
+                    FontSize="18"
+                    Text="Ausgaben für Essen pro Monat:"
+                    TextColor="{StaticResource Gray600}" />
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF / Monat"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="FoodFromEntry" />
+                    <Label
+                        FontSize="18"
+                        Text=" - "
+                        TextColor="{StaticResource Gray600}"
+                        VerticalOptions="Center" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF / Monat"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="FoodToEntry" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Rent  -->
+            <StackLayout Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Miete für 1 Jahr:"
+                    TextColor="{StaticResource Gray600}" />
+                <Entry
+                    BackgroundColor="{StaticResource White}"
+                    FontSize="18"
+                    HorizontalOptions="FillAndExpand"
+                    Keyboard="Numeric"
+                    Placeholder="0.00 CHF / Jahr"
+                    TextChanged="OnExpenseChanged"
+                    TextColor="{StaticResource Black}"
+                    x:Name="RentEntry" />
+                <Label
+                    FontSize="18"
+                    Text="Nachzahlung:"
+                    TextColor="{StaticResource Gray600}" />
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF / Monat"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="RentFromEntry" />
+                    <Label
+                        FontSize="18"
+                        Text=" - "
+                        TextColor="{StaticResource Gray600}"
+                        VerticalOptions="Center" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        HorizontalOptions="FillAndExpand"
+                        Keyboard="Numeric"
+                        Placeholder="0.00 CHF / Monat"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="RentToEntry" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Tax  -->
+            <StackLayout Spacing="5">
+                <Label
+                    FontSize="18"
+                    Text="Steuern des letzten Jahres:"
+                    TextColor="{StaticResource Gray600}" />
+                <Entry
+                    BackgroundColor="{StaticResource White}"
+                    FontSize="18"
+                    HorizontalOptions="FillAndExpand"
+                    Keyboard="Numeric"
+                    Placeholder="0.00 CHF / Jahr"
+                    TextChanged="OnExpenseChanged"
+                    TextColor="{StaticResource Black}"
+                    x:Name="TaxEntry" />
+            </StackLayout>
+
+            <!--  Subscriptions  -->
+            <StackLayout Spacing="5">
                 <Label
                     FontFamily="FontAwesomeSolid"
                     FontSize="22"
                     Padding="10"
-                    Text="&#xf0d7; Auto:"
+                    Text="&#xf0d7; ABO:"
                     TextColor="{StaticResource Gray600}"
                     VerticalOptions="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ToggleAutoCommand}" />
+                        <TapGestureRecognizer Command="{Binding ToggleSubCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
-
-                <!--  Auto Section Content  -->
                 <StackLayout
                     IsVisible="{Binding IsAutoExpanded}"
                     Padding="10,0,0,0"
@@ -46,42 +140,86 @@
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Sprit (CHF/m)"
+                        Placeholder="Unterhaltung (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
-                        x:Name="CarFuelEntry" />
+                        x:Name="FunSubEntry" />
                     <Entry
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Wartung (CHF/m)"
+                        Placeholder="Sport u. Bildung (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
-                        x:Name="CarMaintenanceEntry" />
+                        x:Name="HealthSubEntry" />
                     <Entry
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Reparaturen (CHF/m)"
+                        Placeholder="Weitere (gesamt) (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
-                        x:Name="CarRepairEntry" />
+                        x:Name="MoreSubEntry" />
                 </StackLayout>
             </StackLayout>
 
+            <!--  Auto  -->
             <StackLayout Spacing="5">
-                <!--  Versicherungen Section Header  -->
                 <Label
+                    FontFamily="FontAwesomeSolid"
                     FontSize="22"
-                    Text="Versicherung:"
+                    Padding="10"
+                    Text="&#xf0d7; AUTO:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleAutoCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout
+                    IsVisible="{Binding IsAutoExpanded}"
+                    Padding="10,0,0,0"
+                    Spacing="5">
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Sprit (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="FuelCarEntry" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Wartung (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="MaintainCarEntry" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Reparaturen (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="RepairCarEntry" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Insurance  -->
+            <StackLayout Spacing="5">
+                <Label
+                    FontFamily="FontAwesomeSolid"
+                    FontSize="22"
+                    Padding="10"
+                    Text="&#xf0d7; VERSICHERUNG:"
                     TextColor="{StaticResource Gray600}"
                     VerticalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ToggleInsuranceCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
-
-                <!--  Versicherungen Section Content  -->
                 <StackLayout
                     IsVisible="{Binding IsInsuranceExpanded}"
                     Padding="10,0,0,0"
@@ -90,7 +228,7 @@
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Krankenkasse (CHF/m)"
+                        Placeholder="Krankenkasse (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="HealthInsuranceEntry" />
@@ -98,7 +236,7 @@
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Haftpflicht (CHF/m)"
+                        Placeholder="Haftpflicht (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="LiabilityInsuranceEntry" />
@@ -106,10 +244,54 @@
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
                         Keyboard="Numeric"
-                        Placeholder="Auto (CHF/m)"
+                        Placeholder="Auto (CHF / Jahr)"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="CarInsuranceEntry" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--  Shopping  -->
+            <StackLayout Spacing="5">
+                <Label
+                    FontFamily="FontAwesomeSolid"
+                    FontSize="22"
+                    Padding="10"
+                    Text="&#xf0d7; EINKAUF:"
+                    TextColor="{StaticResource Gray600}"
+                    VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleShopCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout
+                    IsVisible="{Binding IsInsuranceExpanded}"
+                    Padding="10,0,0,0"
+                    Spacing="5">
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Kleidung (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="ClothesShopEntry" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Haushalt (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="HauseholdShopEntry" />
+                    <Entry
+                        BackgroundColor="{StaticResource White}"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Weitere (CHF / Jahr)"
+                        TextChanged="OnExpenseChanged"
+                        TextColor="{StaticResource Black}"
+                        x:Name="MoreShopEntry" />
                 </StackLayout>
             </StackLayout>
 
@@ -123,7 +305,7 @@
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
                     Keyboard="Numeric"
-                    Placeholder="0.00 CHF/m"
+                    Placeholder="0.00 CHF / Jahr"
                     TextChanged="OnExpenseChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="OtherExpensesEntry" />
@@ -141,10 +323,17 @@
                     VerticalOptions="Center" />
                 <Label
                     FontSize="22"
-                    Text="0.00 CHF/m"
+                    Text="0.00 CHF / Jahr"
                     TextColor="{StaticResource Secondary}"
                     x:Name="TotalExpenseLabel" />
             </StackLayout>
+            <Button
+                BackgroundColor="{StaticResource Secondary}"
+                FontSize="22"
+                HorizontalOptions="Center"
+                Margin="0,10,0,0"
+                Text="Angaben speichern"
+                TextColor="{StaticResource White}" />
         </StackLayout>
     </Frame>
 </ContentView>
