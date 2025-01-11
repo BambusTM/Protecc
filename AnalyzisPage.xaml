@@ -23,7 +23,6 @@
                 <protecc:Header Title="Finanzübersicht" />
             </Grid>
 
-            <!--  Main Content  -->
             <Grid
                 ColumnDefinitions="*, *"
                 ColumnSpacing="10"
@@ -31,21 +30,9 @@
                 Grid.Row="1"
                 RowSpacing="10">
 
-                <!--  Income Form  -->
-                <protecc:IncomeForm />
+                <protecc:IncomeForm Grid.Column="0" />
 
-                <!--  Spending Form  -->
-                <Frame
-                    BackgroundColor="{StaticResource Tertiary}"
-                    CornerRadius="10"
-                    Grid.Column="1"
-                    Grid.Row="0">
-                    <Label
-                        FontSize="18"
-                        HorizontalOptions="Start"
-                        Text="Ausgaben"
-                        TextColor="{StaticResource Beige}" />
-                </Frame>
+                <protecc:ExpenseForm Grid.Column="1" />
             </Grid>
         </Grid>
     </ScrollView>

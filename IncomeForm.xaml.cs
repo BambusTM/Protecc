@@ -1,6 +1,4 @@
-using System.IO;
 using System.Text.Json;
-using Microsoft.Maui.Controls;
 using Protecc.Models;
 
 namespace Protecc
@@ -8,6 +6,7 @@ namespace Protecc
     public partial class IncomeForm : ContentView
     {
         private readonly string _filePath;
+        private IncomeData _currentData;
 
         public IncomeForm()
         {
@@ -20,9 +19,9 @@ namespace Protecc
 
         private void OnIncomeChanged(object sender, TextChangedEventArgs e)
         {
-            decimal lohn = ParseDecimal(LohnEntry.Text);
-            decimal nebenerwerb = ParseDecimal(NebenerwerbEntry.Text);
-            decimal sonstige = ParseDecimal(SonstigeEntry.Text);
+            decimal salary = ParseDecimal(SalaryEntry.Text);
+            decimal sideline = ParseDecimal(SidelineEntry.Text);
+            decimal other = ParseDecimal(OtherEntry.Text);
             decimal fromValue = ParseDecimal(FromEntry.Text);
             decimal toValue = ParseDecimal(ToEntry.Text);
 
@@ -30,39 +29,62 @@ namespace Protecc
                 ? (fromValue + toValue) / 2
                 : fromValue + toValue;
 
-            decimal gesamtwert = lohn + nebenerwerb + sonstige + average;
+            decimal total = salary + sideline + other + average;
 
-            GesamtWertLabel.Text = gesamtwert.ToString("F2") + " CHF";
-
-            Console.WriteLine($"Saving to: {_filePath}");
-
-            SaveData(new IncomeData
-            {
-                Lohn = lohn,
-                Nebenerwerb = nebenerwerb,
-                Sonstige = sonstige,
-                FromValue = fromValue,
-                ToValue = toValue,
-                Gesamtwert = gesamtwert
-            });
+            TotalLabel.Text = total.ToString("F2") + " CHF";
         }
 
-        private decimal ParseDecimal(string input)
+        private async void SaveData(object sender, EventArgs e)
         {
-            return decimal.TryParse(input, out var result) ? result : 0;
-        }
+            _currentData ??= new IncomeData();
 
-        private void SaveData(IncomeData data)
-        {
+            _currentData.Salary = !string.IsNullOrWhiteSpace(SalaryEntry.Text)
+                ? ParseDecimal(SalaryEntry.Text)
+                : _currentData.Salary;
+
+            _currentData.Sideline = !string.IsNullOrWhiteSpace(SidelineEntry.Text)
+                ? ParseDecimal(SidelineEntry.Text)
+                : _currentData.Sideline;
+
+            _currentData.Other = !string.IsNullOrWhiteSpace(OtherEntry.Text)
+                ? ParseDecimal(OtherEntry.Text)
+                : _currentData.Other;
+
+            _currentData.FromValue = !string.IsNullOrWhiteSpace(FromEntry.Text)
+                ? ParseDecimal(FromEntry.Text)
+                : _currentData.FromValue;
+
+            _currentData.ToValue = !string.IsNullOrWhiteSpace(ToEntry.Text)
+                ? ParseDecimal(ToEntry.Text)
+                : _currentData.ToValue;
+
+            decimal average = (_currentData.FromValue != 0 && _currentData.ToValue != 0)
+                ? (_currentData.FromValue + _currentData.ToValue) / 2
+                : _currentData.FromValue + _currentData.ToValue;
+
+            _currentData.TotalIncome = _currentData.Salary +
+                                       _currentData.Sideline +
+                                       _currentData.Other +
+                                       average;
+
+            TotalLabel.Text = _currentData.TotalIncome.ToString("F2") + " CHF";
+
+            // Save to file
             try
             {
-                var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                var json = JsonSerializer.Serialize(_currentData, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(_filePath, json);
+                Console.WriteLine($"Data saved successfully to: {_filePath}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error saving data: {ex.Message}");
             }
+        }
+
+        private decimal ParseDecimal(string input)
+        {
+            return decimal.TryParse(input, out var result) ? result : 0;
         }
 
         private void LoadData()
@@ -72,22 +94,28 @@ namespace Protecc
                 if (File.Exists(_filePath))
                 {
                     var json = File.ReadAllText(_filePath);
-                    var data = JsonSerializer.Deserialize<IncomeData>(json);
+                    _currentData = JsonSerializer.Deserialize<IncomeData>(json);
 
-                    if (data != null)
+                    if (_currentData != null)
                     {
-                        LohnEntry.Text = data.Lohn.ToString();
-                        NebenerwerbEntry.Text = data.Nebenerwerb.ToString();
-                        SonstigeEntry.Text = data.Sonstige.ToString();
-                        FromEntry.Text = data.FromValue.ToString();
-                        ToEntry.Text = data.ToValue.ToString();
-                        GesamtWertLabel.Text = data.Gesamtwert.ToString("F2") + " CHF";
+                        // Populate fields with existing data
+                        SalaryEntry.Text = _currentData.Salary.ToString();
+                        SidelineEntry.Text = _currentData.Sideline.ToString();
+                        OtherEntry.Text = _currentData.Other.ToString();
+                        FromEntry.Text = _currentData.FromValue.ToString();
+                        ToEntry.Text = _currentData.ToValue.ToString();
+                        TotalLabel.Text = _currentData.TotalIncome.ToString("F2") + " CHF";
                     }
+                }
+                else
+                {
+                    _currentData = new IncomeData();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading data: {ex.Message}");
+                _currentData = new IncomeData();
             }
         }
     }

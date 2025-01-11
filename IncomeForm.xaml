@@ -36,7 +36,7 @@
                     Placeholder="0.00 CHF/m"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
-                    x:Name="LohnEntry" />
+                    x:Name="SalaryEntry" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Spacing="5">
@@ -52,7 +52,7 @@
                     Placeholder="0.00 CHF/m"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
-                    x:Name="NebenerwerbEntry" />
+                    x:Name="SidelineEntry" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Spacing="5">
@@ -68,7 +68,7 @@
                     Placeholder="0.00 CHF/m"
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
-                    x:Name="SonstigeEntry" />
+                    x:Name="OtherEntry" />
             </StackLayout>
 
             <StackLayout Spacing="5">
@@ -101,9 +101,7 @@
                         TextColor="{StaticResource Black}"
                         x:Name="ToEntry" />
                 </StackLayout>
-
             </StackLayout>
-
             <StackLayout
                 Margin="0,20,0,0"
                 Orientation="Horizontal"
@@ -117,8 +115,16 @@
                     FontSize="22"
                     Text="0.00 CHF/m"
                     TextColor="{StaticResource Secondary}"
-                    x:Name="GesamtWertLabel" />
+                    x:Name="TotalLabel" />
             </StackLayout>
+            <Button
+                BackgroundColor="{StaticResource Secondary}"
+                Clicked="SaveData"
+                FontSize="22"
+                HorizontalOptions="Center"
+                Text="Angaben speichern"
+                TextColor="{StaticResource White}" />
+
         </StackLayout>
     </Frame>
 </ContentView>
