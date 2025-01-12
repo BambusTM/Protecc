@@ -105,10 +105,8 @@ public partial class ConfirmPage : ContentPage
                 return;
             }
 
-            // Calculate the end date (one year later)
             var endDate = startDatePicker.Date.AddYears(1).ToString("dd.MM.yyyy");
 
-            // Create the ProfileData instance
             var profileData = new ProfileData
             {
                 ProfileName = profileNameEntry.Text,
@@ -118,23 +116,25 @@ public partial class ConfirmPage : ContentPage
                 ExpenseFileReg = "/Users/yoru/Library/Containers/com.companyname.protecc/Data/Library/expenseData.json"
             };
 
-            // File path for saving profile data
             string profileFilePath =
                 "/Users/yoru/Library/Containers/com.companyname.protecc/Data/Library/profileData.json";
 
-            // Serialize the ProfileData instance to JSON
             string profileJson = JsonConvert.SerializeObject(profileData, Formatting.Indented);
 
-            // Write JSON to file
             File.WriteAllText(profileFilePath, profileJson);
 
-            // Provide feedback to the user
+            // Popup
             await DisplayAlert("Erfolg", "Profil erfolgreich gespeichert.", "OK");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error saving profile: {ex.Message}");
             await DisplayAlert("Fehler", "Beim Speichern des Profils ist ein Fehler aufgetreten.", "OK");
+        }
+
+        if (Application.Current.MainPage is NavigationPage navigationPage)
+        {
+            await navigationPage.Navigation.PushAsync(new MainPage());
         }
     }
 }
