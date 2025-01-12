@@ -56,7 +56,7 @@ namespace Protecc
             _currentData.Other = ParseDecimal(OtherExpensesEntry.Text);
 
             // Calculate total expenses
-            _currentData.TotalExpense = _currentData.FoodTotal +
+            _currentData.TotalExpense = (_currentData.FoodTotal = _currentData.FoodTotal * 12) +
                                         _currentData.RentTotal +
                                         _currentData.Tax +
                                         _currentData.SubscriptionTotal +

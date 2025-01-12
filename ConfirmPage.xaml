@@ -4,6 +4,8 @@
     x:Class="Protecc.ConfirmPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:protecc="clr-namespace:Protecc"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2021/maui/toolkit"
+    xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ScrollView>
         <Grid
@@ -42,6 +44,57 @@
                             HorizontalOptions="Start"
                             Text="Deine Angaben"
                             TextColor="{StaticResource Secondary}" />
+
+                        <StackLayout Spacing="10" x:Name="IncomeDataStackLayout">
+                            <Frame
+                                BackgroundColor="{StaticResource Primary}"
+                                CornerRadius="10"
+                                Padding="10">
+                                <views:Expander IsExpanded="True">
+                                    <views:Expander.Header>
+                                        <Label
+                                            FontFamily="FontAwesomeSolid"
+                                            FontSize="22"
+                                            Text="&#xf0d7; EINKUNFT:"
+                                            TextColor="{StaticResource Secondary}" />
+                                    </views:Expander.Header>
+                                    <views:Expander.Content>
+                                        <VerticalStackLayout
+                                            Padding="5"
+                                            Spacing="5"
+                                            x:Name="IncomeContentLayout" />
+                                    </views:Expander.Content>
+                                </views:Expander>
+                            </Frame>
+                            <Frame
+                                BackgroundColor="{StaticResource Primary}"
+                                CornerRadius="10"
+                                Padding="10">
+                                <views:Expander IsExpanded="True">
+                                    <views:Expander.Header>
+                                        <Label
+                                            FontFamily="FontAwesomeSolid"
+                                            FontSize="22"
+                                            Text="&#xf0d7; AUSGABEN:"
+                                            TextColor="{StaticResource Secondary}" />
+                                    </views:Expander.Header>
+                                    <views:Expander.Content>
+                                        <VerticalStackLayout
+                                            Padding="5"
+                                            Spacing="5"
+                                            x:Name="ExpenseContentLayout" />
+                                    </views:Expander.Content>
+                                </views:Expander>
+                            </Frame>
+                            <Button
+                                BackgroundColor="{StaticResource Secondary}"
+                                Clicked="PreviousPage"
+                                FontSize="22"
+                                HorizontalOptions="Center"
+                                Margin="0,20,0,0"
+                                Text="Änderung vornehmen"
+                                TextColor="{StaticResource White}" />
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
 
@@ -51,13 +104,49 @@
                     Grid.Column="1"
                     Padding="20">
                     <StackLayout Spacing="10">
-
                         <!--  Title  -->
                         <Label
                             FontSize="32"
                             HorizontalOptions="Start"
-                            Text="Abschliessen"
+                            Text="Fertigstellen"
                             TextColor="{StaticResource Secondary}" />
+                        <Label
+                            FontSize="18"
+                            Text="Profilname:"
+                            TextColor="{StaticResource Gray600}" />
+                        <Entry
+                            BackgroundColor="{StaticResource White}"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Text"
+                            Placeholder="Profilname eingeben"
+                            TextColor="{StaticResource Black}"
+                            x:Name="ProfileNameEntry" />
+                        <Label
+                            FontSize="18"
+                            Text="Zeitspanne für Eingabe wählen:"
+                            TextColor="{StaticResource Gray600}" />
+                        <DatePicker
+                            DateSelected="OnDateSelected"
+                            FontSize="22"
+                            TextColor="{StaticResource Secondary}"
+                            x:Name="StartDatePicker" />
+                        <Label
+                            FontSize="18"
+                            Text="Ausgewählte Zeitspanne:"
+                            TextColor="{StaticResource Gray600}" />
+                        <Label
+                            FontSize="18"
+                            TextColor="{StaticResource Gray600}"
+                            x:Name="DateRangeLabel" />
+                        <Button
+                            BackgroundColor="{StaticResource Secondary}"
+                            Clicked="OnSaveClicked"
+                            FontSize="22"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0,20,0,0"
+                            Text="Abschliessen"
+                            TextColor="{StaticResource White}" />
                     </StackLayout>
                 </Frame>
             </Grid>

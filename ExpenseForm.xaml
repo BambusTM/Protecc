@@ -82,7 +82,7 @@
                         FontSize="18"
                         HorizontalOptions="FillAndExpand"
                         Keyboard="Numeric"
-                        Placeholder="0.00 CHF / Monat"
+                        Placeholder="0.00 CHF / Jahr"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="RentFromEntry" />
@@ -96,7 +96,7 @@
                         FontSize="18"
                         HorizontalOptions="FillAndExpand"
                         Keyboard="Numeric"
-                        Placeholder="0.00 CHF / Monat"
+                        Placeholder="0.00 CHF / Jahr"
                         TextChanged="OnExpenseChanged"
                         TextColor="{StaticResource Black}"
                         x:Name="RentToEntry" />
@@ -137,7 +137,7 @@
                         <VerticalStackLayout Padding="5" Spacing="5">
                             <Label
                                 FontSize="18"
-                                Text="Unterhaltung (CHF / Jahr)"
+                                Text="Unterhaltung:"
                                 TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
@@ -149,7 +149,7 @@
                                 x:Name="FunSubEntry" />
                             <Label
                                 FontSize="18"
-                                Text="Sport u. Bildung (CHF / Jahr)"
+                                Text="Sport u. Bildung:"
                                 TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
@@ -161,7 +161,7 @@
                                 x:Name="HealthSubEntry" />
                             <Label
                                 FontSize="18"
-                                Text="Weitere (gesamt) (CHF / Jahr)"
+                                Text="Weitere (gesamt):"
                                 TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
@@ -394,7 +394,7 @@
                     FontSize="22"
                     HorizontalOptions="FillAndExpand"
                     Margin="5,0,5,0"
-                    Text="Fertigstellen"
+                    Text="Weiter"
                     TextColor="{StaticResource Black}" />
             </StackLayout>
         </StackLayout>
