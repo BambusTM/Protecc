@@ -21,7 +21,7 @@ namespace Protecc
 
             LoadData();
         }
-        
+
         private async void PreviousPage(object sender, EventArgs e)
         {
             if (Application.Current.MainPage is NavigationPage navigationPage)
@@ -72,38 +72,45 @@ namespace Protecc
 
         private bool IsValidNumber(string input)
         {
+            if (string.IsNullOrEmpty(input)) 
+                return true; // Allow null or empty inputs
+
             return decimal.TryParse(input, out var result) && result >= 0 && HasMaxTwoDecimalPlaces(input);
         }
-
+        
         private bool HasMaxTwoDecimalPlaces(string input)
         {
-            var parts = input.Split('.');
-            return parts.Length == 1 || (parts.Length == 2 && parts[1].Length <= 2);
+            int decimalIndex = input.IndexOf('.');
+            if (decimalIndex == -1) 
+                return true;
+
+            string decimalPart = input.Substring(decimalIndex + 1);
+            return decimalPart.Length <= 2;
         }
 
         private async void SaveData(object sender, EventArgs e)
         {
+            // Validate all inputs before saving
+            if (!IsValidNumber(SalaryEntry.Text) ||
+                !IsValidNumber(SidelineEntry.Text) ||
+                !IsValidNumber(OtherEntry.Text) ||
+                !IsValidNumber(FromEntry.Text) ||
+                !IsValidNumber(ToEntry.Text))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Ungültige Eingabe",
+                    "Bitte überprüfen Sie alle Felder. Nur positive Zahlen mit bis zu zwei Dezimalstellen sind erlaubt.",
+                    "OK");
+                return;
+            }
+
             _currentData ??= new IncomeData();
 
-            _currentData.Salary = !string.IsNullOrWhiteSpace(SalaryEntry.Text)
-                ? ParseDecimal(SalaryEntry.Text)
-                : _currentData.Salary;
-
-            _currentData.Sideline = !string.IsNullOrWhiteSpace(SidelineEntry.Text)
-                ? ParseDecimal(SidelineEntry.Text)
-                : _currentData.Sideline;
-
-            _currentData.Other = !string.IsNullOrWhiteSpace(OtherEntry.Text)
-                ? ParseDecimal(OtherEntry.Text)
-                : _currentData.Other;
-
-            _currentData.FromValue = !string.IsNullOrWhiteSpace(FromEntry.Text)
-                ? ParseDecimal(FromEntry.Text)
-                : _currentData.FromValue;
-
-            _currentData.ToValue = !string.IsNullOrWhiteSpace(ToEntry.Text)
-                ? ParseDecimal(ToEntry.Text)
-                : _currentData.ToValue;
+            _currentData.Salary = ParseDecimal(SalaryEntry.Text);
+            _currentData.Sideline = ParseDecimal(SidelineEntry.Text);
+            _currentData.Other = ParseDecimal(OtherEntry.Text);
+            _currentData.FromValue = ParseDecimal(FromEntry.Text);
+            _currentData.ToValue = ParseDecimal(ToEntry.Text);
 
             decimal average = (_currentData.FromValue != 0 && _currentData.ToValue != 0)
                 ? (_currentData.FromValue + _currentData.ToValue) / 2
@@ -122,10 +129,16 @@ namespace Protecc
                 var json = JsonSerializer.Serialize(_currentData, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(_filePath, json);
                 Console.WriteLine($"Data saved successfully to: {_filePath}");
+
+                // Show confirmation toast
+                await Application.Current.MainPage.DisplayAlert("Erfolg", "Daten wurden erfolgreich gespeichert.",
+                    "OK");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error saving data: {ex.Message}");
+                await Application.Current.MainPage.DisplayAlert("Fehler", "Daten konnten nicht gespeichert werden.",
+                    "OK");
             }
         }
 

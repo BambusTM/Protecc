@@ -55,6 +55,14 @@
                         TextColor="{StaticResource Black}"
                         x:Name="FoodToEntry" />
                 </StackLayout>
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="FoodFromValidation" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="FoodToValidation" />
             </StackLayout>
 
             <!--  Rent  -->
@@ -72,6 +80,10 @@
                     TextChanged="OnExpenseChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="RentEntry" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="RentValidation" />
                 <Label
                     FontSize="18"
                     Text="Nachzahlung:"
@@ -101,6 +113,14 @@
                         TextColor="{StaticResource Black}"
                         x:Name="RentToEntry" />
                 </StackLayout>
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="RentFromValidation" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="RenToValidation" />
             </StackLayout>
 
             <!--  Tax  -->
@@ -147,6 +167,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="FunSubEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="FunSubValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Sport u. Bildung:"
@@ -159,6 +183,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="HealthSubEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="HealthSubValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Weitere (gesamt):"
@@ -171,6 +199,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="MoreSubEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="MoreSubValidation" />
                         </VerticalStackLayout>
                     </toolkit:Expander.Content>
                 </toolkit:Expander>
@@ -204,6 +236,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="FuelCarEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="FuelCarValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Wartung (CHF / Jahr)"
@@ -216,6 +252,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="MaintainCarEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="MaintainCarValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Reparaturen (CHF / Jahr)"
@@ -228,6 +268,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="RepairCarEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="RepairCarValidation" />
                         </VerticalStackLayout>
                     </toolkit:Expander.Content>
                 </toolkit:Expander>
@@ -261,6 +305,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="HealthInsuranceEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="HealtInsuranceValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Haftpflicht (CHF / Jahr)"
@@ -273,6 +321,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="LiabilityInsuranceEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="LiabilityInsuranceValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Auto (CHF / Jahr)"
@@ -285,6 +337,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="CarInsuranceEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="CarInsuranceValidation" />
                         </VerticalStackLayout>
                     </toolkit:Expander.Content>
                 </toolkit:Expander>
@@ -318,6 +374,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="ClothesShopEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="ClothesShopValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Haushalt (CHF / Jahr)"
@@ -330,6 +390,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="HauseholdShopEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="HouseholdShopValidation" />
                             <Label
                                 FontSize="18"
                                 Text="Weitere (CHF / Jahr)"
@@ -342,6 +406,10 @@
                                 TextChanged="OnExpenseChanged"
                                 TextColor="{StaticResource Black}"
                                 x:Name="MoreShopEntry" />
+                            <BoxView
+                                Color="Transparent"
+                                HeightRequest="2"
+                                x:Name="MoreShopValidation" />
                         </VerticalStackLayout>
                     </toolkit:Expander.Content>
                 </toolkit:Expander>
@@ -361,6 +429,10 @@
                     TextChanged="OnExpenseChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="OtherExpensesEntry" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="OtherEValidation" />
             </StackLayout>
 
             <!--  Total  -->
