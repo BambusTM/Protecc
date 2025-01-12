@@ -30,38 +30,38 @@ namespace Protecc
         private void OnExpenseChanged(object sender, TextChangedEventArgs e)
         {
             ValidateInput();
-            
+
             UpdateTotal();
         }
-        
+
         private void ValidateInput()
         {
             SetValidationColor(FoodFromEntry.Text, FoodFromValidation);
             SetValidationColor(FoodToEntry.Text, FoodToValidation);
-            
+
             SetValidationColor(RentEntry.Text, RentValidation);
             SetValidationColor(RentFromEntry.Text, RentFromValidation);
             SetValidationColor(RentToEntry.Text, RenToValidation);
-            
+
             SetValidationColor(FunSubEntry.Text, FunSubValidation);
             SetValidationColor(HealthSubEntry.Text, HealthSubValidation);
             SetValidationColor(MoreSubEntry.Text, MoreSubValidation);
-            
+
             SetValidationColor(FuelCarEntry.Text, FuelCarValidation);
             SetValidationColor(MaintainCarEntry.Text, MaintainCarValidation);
             SetValidationColor(RepairCarEntry.Text, RepairCarValidation);
-            
+
             SetValidationColor(HealthInsuranceEntry.Text, HealtInsuranceValidation);
             SetValidationColor(LiabilityInsuranceEntry.Text, LiabilityInsuranceValidation);
             SetValidationColor(CarInsuranceEntry.Text, CarInsuranceValidation);
-            
+
             SetValidationColor(ClothesShopEntry.Text, ClothesShopValidation);
             SetValidationColor(HauseholdShopEntry.Text, HouseholdShopValidation);
             SetValidationColor(MoreShopEntry.Text, MoreShopValidation);
-            
+
             SetValidationColor(OtherExpensesEntry.Text, OtherEValidation);
         }
-        
+
         private void SetValidationColor(string input, BoxView validationBox)
         {
             if (string.IsNullOrWhiteSpace(input) || !IsValidNumber(input))
@@ -73,19 +73,19 @@ namespace Protecc
                 validationBox.Color = Colors.Green;
             }
         }
-        
+
         private bool IsValidNumber(string input)
         {
-            if (string.IsNullOrEmpty(input)) 
+            if (string.IsNullOrEmpty(input))
                 return true; // Allow null or empty inputs
 
             return decimal.TryParse(input, out var result) && result >= 0 && HasMaxTwoDecimalPlaces(input);
         }
-        
+
         private bool HasMaxTwoDecimalPlaces(string input)
         {
             int decimalIndex = input.IndexOf('.');
-            if (decimalIndex == -1) 
+            if (decimalIndex == -1)
                 return true;
 
             string decimalPart = input.Substring(decimalIndex + 1);
@@ -94,10 +94,13 @@ namespace Protecc
 
         private async void SaveData(object sender, EventArgs e)
         {
+            // Validate inputs first
             if (!ValidateInputs())
             {
-                await Application.Current.MainPage.DisplayAlert("Fehler", "Bitte stellen Sie sicher, dass alle Eingaben gültige Zahlen enthalten.", "OK");
-                return;
+                // Display error message if inputs are invalid
+                await Application.Current.MainPage.DisplayAlert("Fehler",
+                    "Bitte stellen Sie sicher, dass alle Eingaben gültige Zahlen enthalten.", "OK");
+                return; // Don't proceed with saving
             }
 
             _currentData ??= new ExpenseData();
@@ -138,11 +141,15 @@ namespace Protecc
             {
                 var json = JsonSerializer.Serialize(_currentData, new JsonSerializerOptions { WriteIndented = true });
                 await File.WriteAllTextAsync(_filePath, json);
-                await Application.Current.MainPage.DisplayAlert("Erfolg", "Die Daten wurden erfolgreich gespeichert.", "OK");
+                // Show success message
+                await Application.Current.MainPage.DisplayAlert("Erfolg", "Die Daten wurden erfolgreich gespeichert.",
+                    "OK");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Fehler", $"Fehler beim Speichern der Daten: {ex.Message}", "OK");
+                // Show error message in case of any issue while saving
+                await Application.Current.MainPage.DisplayAlert("Fehler",
+                    $"Fehler beim Speichern der Daten: {ex.Message}", "OK");
             }
         }
 
@@ -168,7 +175,8 @@ namespace Protecc
         private bool ValidateInputs()
         {
             // Validate all numeric fields
-            string[] inputs = {
+            string[] inputs =
+            {
                 FoodFromEntry.Text, FoodToEntry.Text, RentEntry.Text,
                 RentFromEntry.Text, RentToEntry.Text, TaxEntry.Text,
                 FunSubEntry.Text, HealthSubEntry.Text, MoreSubEntry.Text,
@@ -185,6 +193,7 @@ namespace Protecc
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -215,7 +224,8 @@ namespace Protecc
                                         ParseDecimal(MoreShopEntry.Text);
                 decimal other = ParseDecimal(OtherExpensesEntry.Text);
 
-                decimal total = foodTotal * 12 + rentTotal + tax + subscriptionTotal + carTotal + insuranceTotal + shoppingTotal + other;
+                decimal total = foodTotal * 12 + rentTotal + tax + subscriptionTotal + carTotal + insuranceTotal +
+                                shoppingTotal + other;
 
                 TotalExpenseLabel.Text = $"{total:F2} CHF / Jahr";
             }
