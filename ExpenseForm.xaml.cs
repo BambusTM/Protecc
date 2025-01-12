@@ -15,16 +15,21 @@ namespace Protecc
         {
             InitializeComponent();
 
-            // Define file path for JSON storage
             _filePath = Path.Combine(FileSystem.AppDataDirectory, "expenseData.json");
 
-            // Load existing data from file
             LoadData();
+        }
+        
+        private async void NextPage(object sender, EventArgs e)
+        {
+            if (Application.Current.MainPage is NavigationPage navigationPage)
+            {
+                await navigationPage.Navigation.PushAsync(new ConfirmPage());
+            }
         }
 
         private void OnExpenseChanged(object sender, TextChangedEventArgs e)
         {
-            // Dynamically calculate total expenses as values are entered
             UpdateTotal();
         }
 

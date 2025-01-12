@@ -16,6 +16,14 @@ namespace Protecc
 
             LoadData();
         }
+        
+        private async void PreviousPage(object sender, EventArgs e)
+        {
+            if (Application.Current.MainPage is NavigationPage navigationPage)
+            {
+                await navigationPage.Navigation.PushAsync(new HomePage());
+            }
+        }
 
         private void OnIncomeChanged(object sender, TextChangedEventArgs e)
         {

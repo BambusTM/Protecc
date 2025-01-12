@@ -138,7 +138,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Unterhaltung (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -150,7 +150,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Sport u. Bildung (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -162,7 +162,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Weitere (gesamt) (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -195,7 +195,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Sprit (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -207,7 +207,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Wartung (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -219,7 +219,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Reparaturen (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -252,7 +252,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Krankenkasse (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -264,7 +264,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Haftpflicht (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -276,7 +276,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Auto (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -309,7 +309,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Kleidung (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -321,7 +321,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Haushalt (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -333,7 +333,7 @@
                             <Label
                                 FontSize="18"
                                 Text="Weitere (CHF / Jahr)"
-                                TextColor="{StaticResource Gray600}" />
+                                TextColor="{StaticResource White}" />
                             <Entry
                                 BackgroundColor="{StaticResource White}"
                                 FontSize="18"
@@ -379,14 +379,24 @@
                     TextColor="{StaticResource Secondary}"
                     x:Name="TotalExpenseLabel" />
             </StackLayout>
-            <Button
-                BackgroundColor="{StaticResource Secondary}"
-                Clicked="SaveData"
-                FontSize="22"
-                HorizontalOptions="Center"
-                Margin="0,10,0,0"
-                Text="Angaben speichern"
-                TextColor="{StaticResource White}" />
+            <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
+                <Button
+                    BackgroundColor="{StaticResource Secondary}"
+                    Clicked="SaveData"
+                    FontSize="22"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="5,0,5,0"
+                    Text="Angaben speichern"
+                    TextColor="{StaticResource White}" />
+                <Button
+                    BackgroundColor="{StaticResource Beige}"
+                    Clicked="NextPage"
+                    FontSize="22"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="5,0,5,0"
+                    Text="Fertigstellen"
+                    TextColor="{StaticResource Black}" />
+            </StackLayout>
         </StackLayout>
     </Frame>
 </ContentView>
