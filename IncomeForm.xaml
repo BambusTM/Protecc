@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <ContentView
     x:Class="Protecc.IncomeForm"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -27,8 +26,7 @@
                 <Label
                     FontSize="18"
                     Text="Lohn:"
-                    TextColor="{StaticResource Gray600}"
-                    VerticalOptions="Center" />
+                    TextColor="{StaticResource Gray600}" />
                 <Entry
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
@@ -37,14 +35,17 @@
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="SalaryEntry" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="SalaryValidation" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Spacing="5">
                 <Label
                     FontSize="18"
                     Text="Nebenerwerb:"
-                    TextColor="{StaticResource Gray600}"
-                    VerticalOptions="Center" />
+                    TextColor="{StaticResource Gray600}" />
                 <Entry
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
@@ -53,14 +54,17 @@
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="SidelineEntry" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="SidelineValidation" />
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Spacing="5">
                 <Label
                     FontSize="18"
                     Text="Sonstige Einnahmen:"
-                    TextColor="{StaticResource Gray600}"
-                    VerticalOptions="Center" />
+                    TextColor="{StaticResource Gray600}" />
                 <Entry
                     BackgroundColor="{StaticResource White}"
                     FontSize="18"
@@ -69,6 +73,10 @@
                     TextChanged="OnIncomeChanged"
                     TextColor="{StaticResource Black}"
                     x:Name="OtherEntry" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="OtherValidation" />
             </StackLayout>
 
             <StackLayout Spacing="5">
@@ -89,8 +97,7 @@
                     <Label
                         FontSize="18"
                         Text=" - "
-                        TextColor="{StaticResource Gray600}"
-                        VerticalOptions="Center" />
+                        TextColor="{StaticResource Gray600}" />
                     <Entry
                         BackgroundColor="{StaticResource White}"
                         FontSize="18"
@@ -101,7 +108,16 @@
                         TextColor="{StaticResource Black}"
                         x:Name="ToEntry" />
                 </StackLayout>
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="FromValidation" />
+                <BoxView
+                    Color="Transparent"
+                    HeightRequest="2"
+                    x:Name="ToValidation" />
             </StackLayout>
+
             <StackLayout
                 Margin="0,20,0,0"
                 Orientation="Horizontal"

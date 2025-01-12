@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Storage;
 using Protecc.Models;
 
@@ -31,6 +32,8 @@ namespace Protecc
 
         private void OnIncomeChanged(object sender, TextChangedEventArgs e)
         {
+            ValidateInput();
+
             decimal salary = ParseDecimal(SalaryEntry.Text);
             decimal sideline = ParseDecimal(SidelineEntry.Text);
             decimal other = ParseDecimal(OtherEntry.Text);
@@ -44,6 +47,38 @@ namespace Protecc
             decimal total = salary + sideline + other + average;
 
             TotalLabel.Text = total.ToString("F2") + " CHF";
+        }
+
+        private void ValidateInput()
+        {
+            SetValidationColor(SalaryEntry.Text, SalaryValidation);
+            SetValidationColor(SidelineEntry.Text, SidelineValidation);
+            SetValidationColor(OtherEntry.Text, OtherValidation);
+            SetValidationColor(FromEntry.Text, FromValidation);
+            SetValidationColor(ToEntry.Text, ToValidation);
+        }
+
+        private void SetValidationColor(string input, BoxView validationBox)
+        {
+            if (string.IsNullOrWhiteSpace(input) || !IsValidNumber(input))
+            {
+                validationBox.Color = Colors.Red;
+            }
+            else
+            {
+                validationBox.Color = Colors.Green;
+            }
+        }
+
+        private bool IsValidNumber(string input)
+        {
+            return decimal.TryParse(input, out var result) && result >= 0 && HasMaxTwoDecimalPlaces(input);
+        }
+
+        private bool HasMaxTwoDecimalPlaces(string input)
+        {
+            var parts = input.Split('.');
+            return parts.Length == 1 || (parts.Length == 2 && parts[1].Length <= 2);
         }
 
         private async void SaveData(object sender, EventArgs e)
