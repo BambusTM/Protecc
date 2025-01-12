@@ -33,23 +33,6 @@
                 Text="&#xe473;"
                 TextColor="{StaticResource Secondary}"
                 VerticalOptions="Center" />
-
-            <Button
-                BackgroundColor="Transparent"
-                FontFamily="FontAwesomeSolid"
-                FontSize="42"
-                Style="{StaticResource SidebarButton}"
-                Text="&#xf007;"
-                TextColor="{StaticResource Secondary}"
-                VerticalOptions="Center" />
-            <Button
-                BackgroundColor="Transparent"
-                FontFamily="FontAwesomeSolid"
-                FontSize="42"
-                Style="{StaticResource SidebarButton}"
-                Text="&#xf013;"
-                TextColor="{StaticResource Secondary}"
-                VerticalOptions="Center" />
             <Button
                 BackgroundColor="Transparent"
                 Clicked="OnInfoClicked"
