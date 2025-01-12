@@ -46,7 +46,9 @@
                     CornerRadius="10"
                     Grid.Column="0"
                     Padding="20">
-                    <StackLayout Spacing="10">
+                    <StackLayout Spacing="10" x:Name="ExpenseChartLayout">
+
+                        <!--  Title  -->
                         <Label
                             FontSize="32"
                             HorizontalOptions="Start"
@@ -54,7 +56,6 @@
                             TextColor="{StaticResource Secondary}" />
                     </StackLayout>
                 </Frame>
-
 
                 <!--  Unforeseen Expenses  -->
                 <Frame

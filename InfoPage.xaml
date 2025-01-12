@@ -50,9 +50,26 @@
                             Text="Applikationsinformationen"
                             TextColor="{StaticResource Secondary}" />
                         <Label
+                            FontSize="24"
+                            HorizontalOptions="Start"
+                            Padding="20"
+                            Text="!Diese Anwendung ist noch im Wamndel!"
+                            TextColor="{StaticResource PrimaryDarkText}" />
+                        <Label
                             FontSize="20"
                             HorizontalOptions="Start"
-                            Text="Alle Eingaben sollten so genau wie möglich und eher pesimistisch gemacht werden. Jedes Feld bezieht sich auf das jährliche Einkommen"
+                            Text="Aufgrund von mangelnder Zeit sind nur Bruchteile der geplanten Profile wirklich implementiert. Auf den Code kann man auch kaum stolz sein. Die nichtvorhandene Konsistenz und die Art und Weise, auf welche ich Daten Speichere könnte man am Lagerfeuer als Horrorgeschichte verkaufen. Wie dem auch sei, es ist begrenzte Funktionalität vorhanden."
+                            TextColor="{StaticResource Black}" />
+                        <Label
+                            FontSize="24"
+                            HorizontalOptions="Start"
+                            Padding="20"
+                            Text="Bedienungs Hilfe"
+                            TextColor="{StaticResource PrimaryDarkText}" />
+                        <Label
+                            FontSize="20"
+                            HorizontalOptions="Start"
+                            Text="Alle Angaben sollten möglichst pessimistisch gemacht werden um das die best möglichen Resultate zu erhalten. Deine Daten werden gespeichert, können aber durch ein erneutes ausfüllen des Formulars bearbeitet werden. Die Daten über dein Einkommen werden automatisch ausgefüllt, die zu deinen Ausgaben aber nicht. Sei also vorsichtig wenn du speicherst."
                             TextColor="{StaticResource Black}" />
                     </StackLayout>
                 </Frame>
