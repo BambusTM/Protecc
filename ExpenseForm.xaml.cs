@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
 using Protecc.Models;
 
 namespace Protecc
@@ -16,10 +17,8 @@ namespace Protecc
             InitializeComponent();
 
             _filePath = Path.Combine(FileSystem.AppDataDirectory, "expenseData.json");
-
-            LoadData();
         }
-        
+
         private async void NextPage(object sender, EventArgs e)
         {
             if (Application.Current.MainPage is NavigationPage navigationPage)
@@ -98,41 +97,6 @@ namespace Protecc
             }
 
             return 0;
-        }
-
-        private void LoadData()
-        {
-            try
-            {
-                if (File.Exists(_filePath))
-                {
-                    var json = File.ReadAllText(_filePath);
-                    _currentData = JsonSerializer.Deserialize<ExpenseData>(json);
-
-                    if (_currentData != null)
-                    {
-                        // Populate fields with existing data
-                        FoodFromEntry.Text = _currentData.FoodTotal.ToString();
-                        RentEntry.Text = _currentData.RentTotal.ToString();
-                        TaxEntry.Text = _currentData.Tax.ToString();
-                        FunSubEntry.Text = _currentData.SubscriptionTotal.ToString();
-                        FuelCarEntry.Text = _currentData.CarTotal.ToString();
-                        HealthInsuranceEntry.Text = _currentData.InsuranceTotal.ToString();
-                        ClothesShopEntry.Text = _currentData.ShoppingTotal.ToString();
-                        OtherExpensesEntry.Text = _currentData.Other.ToString();
-                        TotalExpenseLabel.Text = $"{_currentData.TotalExpense:F2} CHF / Jahr";
-                    }
-                }
-                else
-                {
-                    _currentData = new ExpenseData();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading data: {ex.Message}");
-                _currentData = new ExpenseData();
-            }
         }
 
         private void UpdateTotal()

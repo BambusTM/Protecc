@@ -5,6 +5,8 @@
     x:Class="Protecc.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:local="clr-namespace:Protecc"
+    xmlns:maui="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:maui1="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
@@ -38,19 +40,21 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <!--  Overview Chart  -->
+                <!--  Expenses  -->
                 <Frame
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
                     Grid.Column="0"
-                    Grid.Row="0">
-                    <Label
-                        FontSize="18"
-                        HorizontalOptions="Start"
-                        Text="Übersicht"
-                        TextColor="{StaticResource Beige}" />
-                    <!--  Add Chart here  -->
+                    Padding="20">
+                    <StackLayout Spacing="10">
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Start"
+                            Text="Ausgaben im Vergleich"
+                            TextColor="{StaticResource Secondary}" />
+                    </StackLayout>
                 </Frame>
+
 
                 <!--  Unforeseen Expenses  -->
                 <Frame
@@ -71,27 +75,33 @@
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
                     Grid.Column="0"
-                    Grid.Row="1">
-                    <Label
-                        FontSize="18"
-                        HorizontalOptions="Start"
-                        Text="Ausgaben: Auto"
-                        TextColor="{StaticResource Beige}" />
-                    <!--  Add bar chart here  -->
+                    Padding="20">
+                    <StackLayout Spacing="10">
+
+                        <!--  Title  -->
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Start"
+                            Text="Deine Angaben"
+                            TextColor="{StaticResource Secondary}" />
+                    </StackLayout>
                 </Frame>
 
                 <!--  Timespan  -->
                 <Frame
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
-                    Grid.Column="1"
-                    Grid.Row="1">
-                    <Label
-                        FontSize="18"
-                        HorizontalOptions="Start"
-                        Text="Zeitspanne"
-                        TextColor="{StaticResource Beige}" />
-                    <!--  Add donut chart here  -->
+                    Grid.Column="0"
+                    Padding="20">
+                    <StackLayout Spacing="10">
+
+                        <!--  Title  -->
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Start"
+                            Text="Deine Angaben"
+                            TextColor="{StaticResource Secondary}" />
+                    </StackLayout>
                 </Frame>
             </Grid>
         </Grid>

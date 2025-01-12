@@ -1,3 +1,6 @@
+using System;
+using Microsoft.Maui.Controls;
+
 namespace Protecc;
 
 public partial class HomePage : ContentPage
