@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 using Protecc.Models;
 
 namespace Protecc;

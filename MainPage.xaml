@@ -5,8 +5,6 @@
     x:Class="Protecc.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:local="clr-namespace:Protecc"
-    xmlns:maui="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    xmlns:maui1="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
@@ -45,10 +43,9 @@
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
                     Grid.Column="0"
+                    Grid.Row="1"
                     Padding="20">
-                    <StackLayout Spacing="10" x:Name="ExpenseChartLayout">
-
-                        <!--  Title  -->
+                    <StackLayout Spacing="10">
                         <Label
                             FontSize="32"
                             HorizontalOptions="Start"
@@ -57,50 +54,111 @@
                     </StackLayout>
                 </Frame>
 
-                <!--  Unforeseen Expenses  -->
                 <Frame
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
                     Grid.Column="1"
-                    Grid.Row="0">
-                    <Label
-                        FontSize="18"
-                        HorizontalOptions="Start"
-                        Text="Unvorhergesehene Ausgaben"
-                        TextColor="{StaticResource Beige}" />
-                    <!--  Add list here  -->
-                </Frame>
-
-                <!--  Expenses: Auto  -->
-                <Frame
-                    BackgroundColor="{StaticResource Tertiary}"
-                    CornerRadius="10"
-                    Grid.Column="0"
+                    Grid.Row="0"
                     Padding="20">
                     <StackLayout Spacing="10">
-
-                        <!--  Title  -->
                         <Label
                             FontSize="32"
                             HorizontalOptions="Start"
-                            Text="Deine Angaben"
+                            Text="Einkommen"
                             TextColor="{StaticResource Secondary}" />
+
+                        <TableView Intent="Form">
+                            <TableRoot>
+                                <TableSection Title="Einkommensquellen">
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="5">
+                                            <Label
+                                                FontSize="16"
+                                                HorizontalOptions="Start"
+                                                Text="Gehalt" />
+                                            <Label
+                                                FontSize="16"
+                                                HorizontalOptions="EndAndExpand"
+                                                Text="{Binding Salary, StringFormat='{0:C}'}" />
+                                        </StackLayout>
+                                    </ViewCell>
+
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="5">
+                                            <Label
+                                                FontSize="16"
+                                                HorizontalOptions="Start"
+                                                Text="Nebenverdienst" />
+                                            <Label
+                                                FontSize="16"
+                                                HorizontalOptions="EndAndExpand"
+                                                Text="{Binding Sideline, StringFormat='{0:C}'}" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </TableSection>
+                            </TableRoot>
+                        </TableView>
                     </StackLayout>
                 </Frame>
 
-                <!--  Timespan  -->
+                <!--  Tipps und Tricks, um Geld zu sparen  -->
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    CornerRadius="10"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Padding="20">
+                    <StackLayout Spacing="10">
+                        <!--  Title for the tips and tricks section  -->
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Start"
+                            Text="Tipps und Tricks, um Geld zu sparen"
+                            TextColor="{StaticResource Secondary}" />
+
+                        <!--  Display a list of money-saving tips  -->
+                        <StackLayout Spacing="5">
+                            <Label
+                                FontSize="16"
+                                Text="1. Erstelle ein Budget und halte dich daran"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                FontSize="16"
+                                Text="2. Vergleiche Preise, bevor du Einkäufe machst"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                FontSize="16"
+                                Text="3. Vermeide unnötige Abonnements und Kündige ungenutzte Dienste"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                FontSize="16"
+                                Text="4. Bereite Mahlzeiten zu Hause statt auswärts zu essen"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                FontSize="16"
+                                Text="5. Kaufe gebrauchte Artikel, wenn möglich"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                FontSize="16"
+                                Text="6. Setze dir Sparziele und verfolge deinen Fortschritt"
+                                TextColor="{StaticResource Primary}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!--  Expenses  -->
                 <Frame
                     BackgroundColor="{StaticResource Tertiary}"
                     CornerRadius="10"
                     Grid.Column="0"
                     Padding="20">
-                    <StackLayout Spacing="10">
+                    <StackLayout Spacing="10" x:Name="ExpenseChartLayout">
 
                         <!--  Title  -->
                         <Label
                             FontSize="32"
                             HorizontalOptions="Start"
-                            Text="Deine Angaben"
+                            Text="Ausgaben im Vergleich"
                             TextColor="{StaticResource Secondary}" />
                     </StackLayout>
                 </Frame>
